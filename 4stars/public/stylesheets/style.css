@@ -1,8 +1,186 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face
+{
+font-family: "DumbTwo";
+src: url('fonts/2Dumb.ttf') format('truetype');
 }
+@font-face
+{
+font-family: "DumbThree";
+src: url('fonts/3Dumb.ttf') format('truetype');
+}
+.homepage_header {
+	margin-top: 25px;
+}
+#blackboard{
+	position: absolute;
+	left: 50px;
+	top: 120px;
+	width: 750px;
+	height: 530px;
+}
+#blackboard img{
+	width: 100%;
+	height: auto;
+}
+.star{
+	position: absolute;
+	left: 680px;
+	top: 90px;
+	z-index: 1;
+}
+.star2{
+	position: absolute;
+	left: 50px;
+	top: 90px;
+	z-index: 1;
+}
+#soccer{
+	position: absolute;
+	left: 600px;
+	top: 0px;
+	width: 680px;
+	height: 800px;
+	z-index: 2;
+}
+#soccer img{
+	width: 100%;
+	height: auto;
+}
+#bus{
+	position: absolute;
+	left: 50px;
+	top: 90px;
+	width: 750px;
+	height: 530px;
+}
+#bus img{
+	width: 100%;
+	height: auto;
+}
+.star_wrapper{
+	width: 600px;
+	height: 600px;
+}
+.star_wrapper img{
+	width: 100%;
+	height: auto;
+}
+.about{
+	width: 300px;
+	text-align: center;
+	font-family: Open Sans;
+	font-size: 26px;
+	vertical-align: middle;
+	position: absolute;
+	left: 150px;
+	top: 230px;
+	color: #1cbab2;
+}
+.banner{
+	position: absolute;
+	left: 0;
+	top: 600px;
+	width: 900px;
+	height: 250px;
+	z-index: 0;
+}
+.banner img{
+	width: 100%;
+	height: auto;
+}
+#pencil{
+	float: right;
+	position: absolute;
+	right: 0px;
+	top: 350px;
+	width: 450px;
+	height: 450px;
+	z-index: 2;
+}
+#pencil img{
+	width: 100%;
+	height: auto;
+}
+#trophy{
+	float: right;
+	position: absolute;
+	right: 0px;
+	top: 400px;
+	width: 250px;
+	height: 400px;
+}
+#trophy img{
+	width: 100%;
+	height: auto;
+}
+#presents{
+	float: right;
+	position: absolute;
+	right: -30px;
+	top: 400px;
+	width: 420px;
+	height: 420px;
+	z-index: 2;
+}
+#presents img{
+	width: 100%;
+	height: auto;
+}
+#section1 {
+  background-color: #1cbab2;
+}
+#section1 h1 {
+	font-family: DumbThree;
+	color: #fef027;
+	font-size: 60px;
+}
+#section2 {
+  background-color: #ff6b6b; 
+}
+#section2 h1 {
+	font-family: DumbThree;
+	color: #1cbab2;
+	font-size: 60px;
+}
+#section3 {
+  background-color: #55f9d0;
+}
+#section3 h1 {
+	font-family: DumbThree;
+	color: #ff6b6b;
+	font-size: 60px;
+}
+#section4 {
+	background-color: #375678;
+}
+.lastpage{
+	width: 1000px;
+	height: 80%;
+	margin-top: 60px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 
+}
+.lastpage img{
+	width: 100%;
+	height: auto;
+}
 a {
   color: #00B7FF;
+}
+.join a{
+	color: #1cbab2;
+	font-family: DumbThree;
+	font-size: 45px;
+	width: 500px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	margin-top: -20px;
+}
+.join a:hover{
+	color: #f8ca00;
+	text-decoration: none;
 }
