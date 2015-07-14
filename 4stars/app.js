@@ -9,7 +9,8 @@ var monk = require('monk');
 var db = monk('localhost:27017/4stars');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var teachers = require('./routes/teachers');
+var students = require('./routes/students');
 
 var app = express();
 
@@ -26,7 +27,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/teachers', teachers);
+app.use('/students', students);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

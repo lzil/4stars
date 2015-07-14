@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Shoot for the Stars' });
 });
 
+router.get('/about', function(req, res, next) {
+	res.render('about', { title: 'About Us' });
+})
+
 module.exports = router;
