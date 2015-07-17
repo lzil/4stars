@@ -8,6 +8,9 @@ src: url('fonts/2Dumb.ttf') format('truetype');
 font-family: "DumbThree";
 src: url('fonts/3Dumb.ttf') format('truetype');
 }
+html,body{
+	height: 100%;
+}
 .homepage_header {
 	margin-top: 25px;
 }
@@ -40,7 +43,6 @@ src: url('fonts/3Dumb.ttf') format('truetype');
 	top: 0px;
 	width: 680px;
 	height: 800px;
-	z-index: 2;
 }
 #soccer img{
 	width: 100%;
@@ -88,26 +90,39 @@ src: url('fonts/3Dumb.ttf') format('truetype');
 	width: 100%;
 	height: auto;
 }
+.banner2{
+	position: absolute;
+	right: 0;
+	top: 600px;
+	width: 1000px;
+	height: 300px;
+	z-index: 0;
+}
+.banner2 img{
+	width: 100%;
+	height: auto;
+}
 #pencil{
 	float: right;
 	position: absolute;
 	right: 0px;
-	top: 350px;
-	width: 450px;
-	height: 450px;
-	z-index: 2;
+	top: 300px;
+	width: 400px;
+	height: 400px;
+	z-index: 1;
 }
 #pencil img{
 	width: 100%;
 	height: auto;
 }
 #trophy{
-	float: right;
+	float: left;
 	position: absolute;
-	right: 0px;
-	top: 400px;
-	width: 250px;
-	height: 400px;
+	left: 0px;
+	top: 420px;
+	width: 280px;
+	height: 500px;
+	z-index: 4;
 }
 #trophy img{
 	width: 100%;
@@ -139,7 +154,7 @@ src: url('fonts/3Dumb.ttf') format('truetype');
 }
 #section2 h1 {
 	font-family: DumbThree;
-	color: #1cbab2;
+	color: #d4ff20;
 	font-size: 60px;
 }
 #section3 {
@@ -183,4 +198,49 @@ a {
 .join a:hover{
 	color: #f8ca00;
 	text-decoration: none;
+}
+/*teacher's page*/
+h2{
+	font-family: DumbThree;
+	color: #1cbab2;
+	font-size: 38px;
+}
+#username{
+	font-family: Open Sans;
+	color: #1cbab2;
+	font-size: 20px;
+	margin-top: 30px;
+}
+hr{
+	width: 100%;
+	position: absolute;
+	top: 50px;
+	background-color: #cdcdcc;
+	size: 1px;
+}
+#teacher_left_nav{
+	border: 1px solid #cdcdcc;
+	margin-top: 10px;
+	min-height: 700px;
+	max-height: 95%;
+}
+#teacher_left_nav ul li{
+	list-style: none;
+	float: left;
+	margin-top: 40px;
+}
+#teacher_left_nav ul li a:hover{
+	color: #ff6b6b;
+	text-decoration: none;
+}
+#myStudents, #addStudents, #assignStars{
+	font-family: DumbTwo;
+	color: #1cbab2;
+	font-size: 22px;
+}
+#teacher_right_display{
+	border: 1px solid #cdcdcc;
+	margin-top: 10px;
+	min-height: 700px;
+	max-height: 95%;
 }
