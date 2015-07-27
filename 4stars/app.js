@@ -4,13 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/4stars');
-
-var routes = require('./routes/index');
-var teachers = require('./routes/teachers');
-var students = require('./routes/students');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/4stars');
 
 var app = express();
 
@@ -26,9 +21,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var passport = require('passport');
+var expressSession = require('express-session');
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+var flash = require('connect-flash');
+app.use(flash());
+
+var initPassport = require('./passport/init');
+initPassport(passport);
+
+var routes = require('./routes/index')(passport);
+var teachers = require('./routes/teachers')(passport);
+var students = require('./routes/students')(passport);
 app.use('/', routes);
 app.use('/teachers', teachers);
 app.use('/students', students);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
