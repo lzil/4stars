@@ -237,10 +237,43 @@ hr{
 	font-family: DumbTwo;
 	color: #1cbab2;
 	font-size: 22px;
+	text-decoration: none;
 }
 #teacher_right_display{
 	border: 1px solid #cdcdcc;
 	margin-top: 10px;
 	min-height: 700px;
 	max-height: 95%;
+}
+#stars_div{
+	font-family: DumbTwo;
+	color: #1cbab2;
+	font-size: 24px;
+	margin-top: 50px;
+}
+#stars_div li{
+	list-style: none;
+	float: left;
+	margin-top: 40px;
+	width: 230px;
+	text-align: center;
+	margin-left: -30px;
+}
+#stars_div li img{
+	width: 100%;
+	height: auto;
+	
+}
+a{
+	text-decoration: none;
+}
+#addForm, #starForm{
+	margin-top: 50px;
+	width: 480px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	font-family: Open Sans;
+	font-size: 22px;
+	color: #1cbab2;
 }

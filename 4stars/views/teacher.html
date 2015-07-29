@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
+    <script src="../public/stylesheets/jquery-1.11.3.min.js"></script>
 
 </head>
 <body style="height:100%">
@@ -19,12 +20,35 @@
         <div class="row" style="height:90%; margin-left:-50px">
             <div class="col-lg-3" id="teacher_left_nav">
                 <ul>
-                    <li><a href="#" id="myStudents" onClick="toMyStudents()">My students</a></li>
-                    <li><a href="#" id="addStudents" onClick="toAddStudents()">Add students</a></li>
-                    <li><a href="#" id="assignStars" onClick="toAssignStars()">Assign stars</a></li>
+                    <li><a href="#" id="myStudents">My students</a></li>
+                    <li><a href="#" id="addStudents">Add students</a></li>
+                    <li><a href="#" id="assignStars">Assign stars</a></li>
+                </ul>
+                <ul id="stars_div">
+                    <li>You have</li>
+                    <li><img src="../public/images/yellow_star.png"></li>
+                    <li>for this week</li>
                 </ul>
             </div>
             <div class="col-lg-9" id="teacher_right_display">
+                <form id="addForm">
+                    Student name: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" name="name" />
+                    <br/><br/>
+                    Student email: &nbsp;&nbsp;&nbsp;&nbsp;<input type="email" id="email" name="email" />
+                    <br/><br/>
+                    <button>Add another</button>
+                    <br/><br/>
+                    <input type="submit" name="Complete" value="Complete"/>
+                </form>
+                <form id="starForm">
+                    Select students: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" />
+                    <br/><br/>
+                    Number of stars: &nbsp;&nbsp;&nbsp;&nbsp;<input type="email" id="password" name="password" />
+                    <br/><br/>
+                    Reason: &nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="5" cols="25"></textarea>
+                    <br/><br/>
+                    <input type="submit" name="Complete" value="Complete"/>
+                </form>
             </div>
         </div>
     		
@@ -32,14 +56,47 @@
 
 </body>
 <script type="text/javascript">
-    function toMyStudents(){
-        document.getElementById("teacher_right_display").innerHTML = "whatever";
-    }
-    function toAddStudents(){
-        document.getElementById("teacher_right_display").innerHTML = "whatever2";
-    }
-    function toAssignStars(){
-        document.getElementById("teacher_right_display").innerHTML = "whatever3";
-    }
+    $(document).ready(function(){
+        $("#addForm").hide();
+        $("#starForm").hide();
+        $("#myStudents").click(function(){
+            $("#myStudents").css("color", "#ff6b6b");
+            $("#addStudents").css('color','#1cbab2');
+            $("#assignStars").css('color','#1cbab2');
+        });
+
+        $("#addStudents").click(function(){
+            $("#myStudents").css("color", "#1cbab2");
+            $("#addStudents").css('color','#ff6b6b');
+            $("#assignStars").css('color','#1cbab2');
+            $("#addForm").show();
+            $("#starForm").hide();
+        });
+
+        $("#assignStars").click(function(){
+            $("#myStudents").css("color", "#1cbab2");
+            $("#addStudents").css('color','#1cbab2');
+            $("#assignStars").css('color','#ff6b6b');
+            $("#starForm").show();
+            $("#addForm").hide();
+        });
+    });
+    // function toMyStudents(){
+    //     document.getElementById("myStudents").style.cssText='color: #ff6b6b';
+    //     document.getElementById("addStudents").style.cssText='color: #1cbab2';
+    //     document.getElementById("assignStars").style.cssText='color: #1cbab2';
+    // }
+    // function toAddStudents(){
+    //     document.getElementById("addStudents").style.cssText='color: #ff6b6b';
+    //     document.getElementById("myStudents").style.cssText='color: #1cbab2';
+    //     document.getElementById("assignStars").style.cssText='color: #1cbab2';
+    //     document.getElementById("addForm").style.display="block";
+    // }
+    // function toAssignStars(){
+    //     document.getElementById("teacher_right_display").innerHTML = "whatever3";
+    //     document.getElementById("assignStars").style.cssText='color: #ff6b6b';
+    //      document.getElementById("myStudents").style.cssText='color: #1cbab2';
+    //     document.getElementById("addStudents").style.cssText='color: #1cbab2';
+    // }
 </script>
 </html>
