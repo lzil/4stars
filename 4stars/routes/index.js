@@ -19,13 +19,24 @@ module.exports = function(passport) {
 		failureFlash : true
 	}));
 
-	router.get('/home', function(req, res) {
+	router.get('/home', isAuthenticated, function(req, res) {
 		var user = req.user;
 		User.findOne({ 'username' : user.username }, function(err, usr) {
 			if (usr.userType === 'teacher') {
-				res.render('teacher', {user:req.user});
+				res.render('teacher', {user:req.user, message: req.flash('message')});
 			} else {
-				res.render('student', {user:req.user});
+				res.render('student', {user:req.user, message: req.flash('message')});
+			}
+		});
+	})
+
+	router.get('/shop', isAuthenticated, function(req, res) {
+		var user = req.user;
+		User.findOne({ 'username' : user.username }, function(err, usr) {
+			if (usr.userType === 'student') {
+				res.render('shop', {message: req.flash('message')})
+			} else {
+				res.render('home', {user:req.user, message: req.flash('message')});
 			}
 		});
 	})
@@ -35,38 +46,38 @@ module.exports = function(passport) {
 	});
 
 	router.post('/signup', passport.authenticate('signup', {
-		successRedirect: '/teacher',
+		successRedirect: '/home',
 		failureRedirect: '/signup',
 		failureFlash : true
 	}));
 
 	router.post('/createStudent', passport.authenticate('createStudent', {
-		successRedirect: '/teacher',
-		failureRedirect: '/teacher',
+		successRedirect: '/home',
+		failureRedirect: '/home',
 		failureFlash: true
 	}));
 
-	router.get('/teacher', isAuthenticated, function(req, res) {
-		var user = req.user;
-		User.findOne({ 'username' : user.username }, function(err, usr) {
-			if (usr.userType === 'teacher') {
-				res.render('teacher', {user:req.user});
-			} else {
-				res.render('student', {user:req.user});
-			}
-		});
-	});
+	// router.get('/teacher', isAuthenticated, function(req, res) {
+	// 	var user = req.user;
+	// 	User.findOne({ 'username' : user.username }, function(err, usr) {
+	// 		if (usr.userType === 'teacher') {
+	// 			res.render('teacher', {user:req.user, message: req.flash('message')});
+	// 		} else {
+	// 			res.render('student', {user:req.user, message: req.flash('message')});
+	// 		}
+	// 	});
+	// });
 
-	router.get('/student', isAuthenticated, function(req, res) {
-		var user = req.user;
-		User.findOne({ 'username' : user.username }, function(err, usr) {
-			if (usr.userType === 'teacher') {
-				res.render('teacher', {user:req.user});
-			} else {
-				res.render('student', {user:req.user});
-			}
-		});
-	});
+	// router.get('/student', isAuthenticated, function(req, res) {
+	// 	var user = req.user;
+	// 	User.findOne({ 'username' : user.username }, function(err, usr) {
+	// 		if (usr.userType === 'teacher') {
+	// 			res.render('teacher', {user:req.user});
+	// 		} else {
+	// 			res.render('student', {user:req.user});
+	// 		}
+	// 	});
+	// });
 
 	router.get('/signout', function(req, res) {
 		req.logout();

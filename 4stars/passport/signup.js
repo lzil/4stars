@@ -67,15 +67,12 @@ module.exports = function(passport) {
 							throw err;
 						}
 						console.log('User Registration successful');
-						return done(null);
+						return done(null, false, req.flash('message', 'successfully added ' + username));
 					});
 				}
 			});
-			console.log('hi2')
 		};
-		console.log('hi3')
 		process.nextTick(findOrCreateUser);
-		console.log('hi')
 	}));
 
 	var createHash = function(password) {
