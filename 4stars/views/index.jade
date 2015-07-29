@@ -1,96 +1,17 @@
 extends layout
 
-    #fullpage
-      #section1.section(data-anchor='firstPage')
-        .row.homepage_header
-          .col-md-1
-          | &#x9;    &#x9;
-          h1.col-md-6 Shoot for the stars
-          | &#x9;    &#x9;
-          .col-md-3
-          | &#x9;    &#x9;
-          button.btn.btn-default.navbar-btn(type='button', style='margin-right:5px; width:110px; height:50px; background-color:#ff6b6b; color:#ffffff; border:none; font-size:20px; margin-top:30px') Sign in
-        |  
-        |     &#x9;&#x9;
-        #blackboard
-          img(src='../public/images/blackboard.png')
-        |     &#x9;&#x9;
-        .star
-          .star_wrapper
-            img(src='../public/images/green_star.png', style='width:100%; height:auto')
-          p.about
-            | A star-reward system for kids to encourage them to achieve more and become better
-        |     &#x9;&#x9;
-        .banner
-          img(src='../public/images/banner1.png')
-        |     &#x9;&#x9;
-        #pencil
-          img(src='../public/images/color_pencil.png')
-      |     
-      #section2.section(data-anchor='secondPage')
-        .row.homepage_header
-          .col-md-1
-          | &#x9;    &#x9;
-          h1.col-md-6 Shoot for the stars2
-        |     &#x9;&#x9;
-        .star2
-          .star_wrapper
-            img(src='../public/images/blue_star.png', style='width:100%; height:auto')
-          p.about(style='color:#ffffff;')
-            | A star-reward system for kids to encourage them to achieve more and become better
-        |     &#x9;&#x9;
-        #soccer
-          img(src='../public/images/center_collage2.png')
-        |     &#x9;&#x9;
-        .banner2
-          img(src='../public/images/banner2.png')
-        |     &#x9;&#x9;
-        #trophy
-          img(src='../public/images/trophy.png')
-      |     
-      #section3.section(data-anchor='thirdPage')
-        .row.homepage_header
-          .col-md-1
-          | &#x9;    &#x9;
-          h1.col-md-6 Shoot for the stars3
-        |     &#x9;
-        #bus
-          img(src='../public/images/bus.png')
-        |     &#x9;&#x9;
-        .star
-          .star_wrapper
-            img(src='../public/images/pink_star.png', style='width:100%; height:auto')
-          p.about
-            | A star-reward system for kids to encourage them to achieve more and become better
-        |     &#x9;&#x9;
-        .banner
-          img(src='../public/images/banner3.png')
-        |     &#x9;&#x9;
-        #presents
-          img(src='../public/images/presents.png')
-      |     
-      #section4.section.fp-section.fp-table(data-anchor='fourthPage')
-        .lastpage
-          img(src='../public/images/lastpage.png')
-        |     &#x9;
-        .join
-          a(href='#') Join now
-  script(src='https://code.jquery.com/jquery-1.11.2.min.js')
-  |     
-  script(src='../public/stylesheets/bootstrap/js/bootstrap.min.js')
-  |     
-  | &#x9;
-  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-  // This following line is optional. Only necessary if you use the option css3:false and you want to use other easing effects rather than "linear", "swing" or "easeInOutCubic".
-  script(src='../public/stylesheets/fullPage/vendors/jquery.easings.min.js')
-  // This following line is only necessary in the case of using the plugin option `scrollOverflow:true`
-  script(type='text/javascript', src='../public/stylesheets/fullPage/vendors/jquery.slimscroll.min.js')
-  | &#x9;
-  script(type='text/javascript', src='../public/stylesheets/fullPage/jquery.fullPage.js')
-  | &#x9;
-  script.
-    $(document).ready(function() {
-    $('#fullpage').fullpage({
-    anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage']
-    });
-    });
+block content
+	div.container
+		div.row
+			div.col-sm-6.col-md-4.col-md-offset-4
+				h1.text-center.login-title Sign in
+					div.account-wall
+						form(class='form-signin', action='/login', method='POST')
+							input(type='text', name='username' class='form-control', placeholder='Username',required, autofocus)
+							input(type='password', name='password' class='form-control', placeholder='Password', required)
+							button(class='btn btn-lg btn-primary btn-block', type='submit') Sign in
+							span.clearfix
+					a(href='/signup', class='text-center new-account') Create an account
+					#message
+					if message
+						h1.text-center.error-message #{message}

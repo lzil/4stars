@@ -28,6 +28,12 @@ module.exports = function(passport) {
 		failureFlash : true
 	}));
 
+	router.post('/createStudent', passport.authenticate('createStudent', {
+		successRedirect: '/home',
+		failureRedirect: '/home',
+		failureFlash: true
+	}));
+
 	router.get('/home', isAuthenticated, function(req, res) {
 		res.render('home', {user:req.user});
 	});
