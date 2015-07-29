@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/user');
 
 var isAuthenticated = function(req, res, next) {
 	if (req.isAuthenticated())
@@ -18,24 +19,53 @@ module.exports = function(passport) {
 		failureFlash : true
 	}));
 
+	router.get('/home', function(req, res) {
+		var user = req.user;
+		User.findOne({ 'username' : user.username }, function(err, usr) {
+			if (usr.userType === 'teacher') {
+				res.render('teacher', {user:req.user});
+			} else {
+				res.render('student', {user:req.user});
+			}
+		});
+	})
+
 	router.get('/signup', function(req, res) {
 		res.render('register', {message: req.flash('message')});
 	});
 
 	router.post('/signup', passport.authenticate('signup', {
-		successRedirect: '/home',
+		successRedirect: '/teacher',
 		failureRedirect: '/signup',
 		failureFlash : true
 	}));
 
 	router.post('/createStudent', passport.authenticate('createStudent', {
-		successRedirect: '/home',
-		failureRedirect: '/home',
+		successRedirect: '/teacher',
+		failureRedirect: '/teacher',
 		failureFlash: true
 	}));
 
-	router.get('/home', isAuthenticated, function(req, res) {
-		res.render('home', {user:req.user});
+	router.get('/teacher', isAuthenticated, function(req, res) {
+		var user = req.user;
+		User.findOne({ 'username' : user.username }, function(err, usr) {
+			if (usr.userType === 'teacher') {
+				res.render('teacher', {user:req.user});
+			} else {
+				res.render('student', {user:req.user});
+			}
+		});
+	});
+
+	router.get('/student', isAuthenticated, function(req, res) {
+		var user = req.user;
+		User.findOne({ 'username' : user.username }, function(err, usr) {
+			if (usr.userType === 'teacher') {
+				res.render('teacher', {user:req.user});
+			} else {
+				res.render('student', {user:req.user});
+			}
+		});
 	});
 
 	router.get('/signout', function(req, res) {
