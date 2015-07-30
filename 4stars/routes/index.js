@@ -61,7 +61,9 @@ module.exports = function(passport) {
 		var user = req.user;
 		User.findOne({ 'username' : user.username }, function(err, usr) {
 			if (usr.userType === 'teacher') {
-				res.render('home', {message: req.flash('message')})
+				User.assignStars('a', function(err, result) {
+					console.log(result);
+				})
 			} else {
 				res.render('home', {user:req.user});
 			}
