@@ -57,6 +57,17 @@ module.exports = function(passport) {
 		failureFlash: true
 	}));
 
+	router.post('/assignStars', isAuthenticated, function(req, res) {
+		var user = req.user;
+		User.findOne({ 'username' : user.username }, function(err, usr) {
+			if (usr.userType === 'teacher') {
+				res.render('home', {message: req.flash('message')})
+			} else {
+				res.render('home', {user:req.user});
+			}
+		});
+	})
+
 	// router.get('/teacher', isAuthenticated, function(req, res) {
 	// 	var user = req.user;
 	// 	User.findOne({ 'username' : user.username }, function(err, usr) {
