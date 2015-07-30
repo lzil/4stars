@@ -57,11 +57,11 @@ module.exports = function(passport) {
 		failureFlash: true
 	}));
 
-	router.post('/assignStars', isAuthenticated, function(req, res) {
+	router.get('/assignStars', isAuthenticated, function(req, res) {
 		var user = req.user;
 		User.findOne({ 'username' : user.username }, function(err, usr) {
 			if (usr.userType === 'teacher') {
-				User.assignStars('a', function(err, result) {
+				usr.assignStars(4, function(err, result) {
 					console.log(result);
 				})
 			} else {
