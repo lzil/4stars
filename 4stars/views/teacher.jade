@@ -13,6 +13,7 @@ block content
 								li First Name ---> #{user.firstName} 
 								li Last Name ---> #{user.lastName}
 						a(href='/signout', class='text-center new-account') Sign Out
+						a(href='/assignStars', class='text-center new-account') Assign Stars
 				#addastudent
 					h1.text-center.login-title Add a student:
 						div.signup-wall
@@ -26,3 +27,92 @@ block content
 						#message
 							if message
 								h1.text-center.error-message #{message}
+		hr
+		.container(style='height:100%')
+			.row
+				h2.col-md-6 Shoot for the stars
+				.col-md-4
+				#username.col-md-2 Hello, Ms. Walker
+			.row(style='height:90%; margin-left:-50px')
+				#teacher_left_nav.col-lg-3
+					ul
+						li
+							a#myStudents(href='#') My students
+						li
+							a#addStudents(href='#') Add students
+						li
+							a#assignStars(href='#') Assign stars
+					ul#stars_div
+						li You have
+						li
+							img(src='../public/images/yellow_star.png')
+						li for this week
+				#teacher_right_display.col-lg-9
+					form#addForm
+						| Student name:     
+						input#name(type='text', name='name')
+						br
+						br
+						|                     Student email:     
+						input#email(type='email', name='email')
+						br
+						br
+						button Add another
+						br
+						br
+						input(type='submit', name='Complete', value='Complete')
+					form#starForm
+						| Select students:     
+						input(type='text', name='name')
+						br
+						br
+						|                     Number of stars:     
+						input#password(type='email', name='password')
+						br
+						br
+						|                     Reason:     
+						textarea(rows='5', cols='25')
+						br
+						br
+						input(type='submit', name='Complete', value='Complete')
+	script(type='text/javascript').
+		$(document).ready(function(){
+		$("#addForm").hide();
+		$("#starForm").hide();
+		$("#myStudents").click(function(){
+		$("#myStudents").css("color", "#ff6b6b");
+		$("#addStudents").css('color','#1cbab2');
+		$("#assignStars").css('color','#1cbab2');
+		});
+		$("#addStudents").click(function(){
+		$("#myStudents").css("color", "#1cbab2");
+		$("#addStudents").css('color','#ff6b6b');
+		$("#assignStars").css('color','#1cbab2');
+		$("#addForm").show();
+		$("#starForm").hide();
+		});
+		$("#assignStars").click(function(){
+		$("#myStudents").css("color", "#1cbab2");
+		$("#addStudents").css('color','#1cbab2');
+		$("#assignStars").css('color','#ff6b6b');
+		$("#starForm").show();
+		$("#addForm").hide();
+		});
+		});
+		// function toMyStudents(){
+		//     document.getElementById("myStudents").style.cssText='color: #ff6b6b';
+		//     document.getElementById("addStudents").style.cssText='color: #1cbab2';
+		//     document.getElementById("assignStars").style.cssText='color: #1cbab2';
+		// }
+		// function toAddStudents(){
+		//     document.getElementById("addStudents").style.cssText='color: #ff6b6b';
+		//     document.getElementById("myStudents").style.cssText='color: #1cbab2';
+		//     document.getElementById("assignStars").style.cssText='color: #1cbab2';
+		//     document.getElementById("addForm").style.display="block";
+		// }
+		// function toAssignStars(){
+		//     document.getElementById("teacher_right_display").innerHTML = "whatever3";
+		//     document.getElementById("assignStars").style.cssText='color: #ff6b6b';
+		//      document.getElementById("myStudents").style.cssText='color: #1cbab2';
+		//     document.getElementById("addStudents").style.cssText='color: #1cbab2';
+		// }

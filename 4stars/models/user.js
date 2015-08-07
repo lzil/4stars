@@ -12,8 +12,8 @@ var userSchema = new Schema({
 	students: [String]
 })
 
-userSchema.statics.addStars = function(name, numStars, cb) {
-	return 'hi';
+userSchema.methods.assignStars = function(numStars, cb) {
+	return cb(null, 'hi');
 }
 
 var User = mongoose.model('User', userSchema);
