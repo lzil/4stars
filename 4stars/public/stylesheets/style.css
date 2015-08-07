@@ -224,6 +224,12 @@ hr{
 	min-height: 700px;
 	max-height: 95%;
 }
+#teacher_left_nav ul{
+	width: 250px;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
 #teacher_left_nav ul li{
 	list-style: none;
 	float: left;
@@ -233,7 +239,29 @@ hr{
 	color: #ff6b6b;
 	text-decoration: none;
 }
-#myStudents, #addStudents, #assignStars{
+#student_left_nav{
+	border: 1px solid #cdcdcc;
+	margin-top: 10px;
+	min-height: 700px;
+	max-height: 95%;
+}
+#student_left_nav ul{
+	margin-top: -40px;
+	width: 250px;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
+#student_left_nav ul li{
+	list-style: none;
+	float: left;
+	margin-top: 40px;
+}
+#student_left_nav ul li a:hover{
+	color: #ff6b6b;
+	text-decoration: none;
+}
+#myStudents, #addStudents, #assignStars, #starShop, #myAccount{
 	font-family: DumbTwo;
 	color: #1cbab2;
 	font-size: 22px;
@@ -245,13 +273,27 @@ hr{
 	min-height: 700px;
 	max-height: 95%;
 }
-<<<<<<< HEAD
-
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#student_right_display{
+	border: 1px solid #cdcdcc;
+	margin-top: 10px;
+	min-height: 700px;
+	max-height: 95%;
+	background-color: #1cbab2;
 }
-
+#logo{
+	width: 240px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	vertical-align: middle;
+}
+#logo img{
+	width: 100%;
+	height: auto;
+}
+.items{
+	margin-top: 20px;
+}
 .form-signin{
     max-width: 330px;
     padding: 15px;

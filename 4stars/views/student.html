@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Student's account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/slick/slick-theme.css"/>
+    <script src="../public/stylesheets/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../public/stylesheets/slick/slick.min.js"></script>
+
+</head>
+<body style="height:100%">
+    <hr>
+    <div class="container" style="height:100%">
+    	<div class="row">
+	    	<h2 class="col-md-6">Shoot for the stars</h2>
+	    	<div class="col-md-4"></div>
+	    	<div class="col-md-2" id="username">Hello, Tom</div>
+    	</div>
+        <div class="row" style="height:90%; margin-left:-50px">
+            <div class="col-lg-3" id="student_left_nav">
+                <div id="logo"><img src="../public/images/lastpage.png"></div>
+                <ul>
+                    <li><a href="#" id="starShop">Star Shop</a></li>
+                    <li><a href="#" id="myAccount">My Account</a></li>
+                </ul>
+                <ul id="stars_div">
+                    <li>You have</li>
+                    <li><img src="../public/images/yellow_star.png"></li>
+                    <li>for this week</li>
+                </ul>
+            </div>
+            <div class="col-lg-9" id="student_right_display">
+                <div id="star_shop_items">
+                    <h2>Redeem your stars</h2>
+                    <div class="items">
+                      <div style="height:300px; width:600px"><img style="height:100%; width:auto; vertical-align:middle" src="../public/images/teddybear.jpg"></div>
+                      <div style="height:300px; width:600px"><img style="height:100%; width:auto" src="../public/images/notebooks.jpg"></div>
+                      <div style="height:300px; width:600px"><img style="height:100%; width:auto" src="../public/images/superman.jpg"></div>
+                    </div>
+                </div>
+            </div>         
+        </div>
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#star_shop_items').hide();
+        $("#starShop").click(function(){
+            $("#starShop").css("color", "#ff6b6b");
+            $("#myAccount").css('color','#1cbab2');
+            $('#star_shop_items').show();
+            $('.items').slick();
+        });
+
+        $("#myAccount").click(function(){
+            $("#starShop").css("color", "#1cbab2");
+            $("#myAccount").css('color','#ff6b6b');
+        });
+    });
+</script>
+</html>
