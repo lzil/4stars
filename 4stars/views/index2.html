@@ -16,13 +16,30 @@
 	    	<div class="col-md-1"></div>
 	    	<h1 class="col-md-6">Shoot for the stars</h1>
 	    	<div class="col-md-3"></div>
-	    	<button type="button" class="btn btn-default navbar-btn" style="margin-right:5px; width:110px; height:50px; background-color:#ff6b6b; color:#ffffff; border:none; font-size:20px; margin-top:30px">Sign in</button>
+	    	<button type="button" id="signin" class="btn btn-default navbar-btn" style="margin-right:5px; width:110px; height:50px; background-color:#ff6b6b; color:#ffffff; border:none; font-size:20px; margin-top:30px">Sign in</button>
     	</div>
  
     		<div id="blackboard"><img src="../public/images/blackboard.png"/></div>
     		<div class="star"><div class="star_wrapper"><img src="../public/images/green_star.png" style="width:100%; height:auto"/></div><p class="about">A star-reward system for kids to encourage them to achieve more and become better</p></div>
     		<div class="banner" ><img src="../public/images/banner1.png"/></div>
     		<div id="pencil"><img src="../public/images/color_pencil.png"/></div>
+            <!-- Login form -->
+            <div id="logindiv" style="display:none">
+                <form class="form" action="#" id="login">
+                <h3>Login Form</h3>
+                <br/>
+                <label>Username : </label>
+                <input type="text" id="user"/><br/>
+                <br/>
+                <label>password : </label>
+                <br/>
+                <input type="text" id="password"/><br/>
+                <br/>
+                <input type="button" id="loginbtn" value="Login"/>
+                <input type="button" id="cancel" value="Cancel"/>
+                <br/>
+                </form>
+            </div>
     </div>
 
     <div class="section" id="section2" data-anchor="secondPage">
@@ -65,9 +82,15 @@
 	<script type="text/javascript" src="../public/stylesheets/fullPage/jquery.fullPage.js"></script>
 	<script>
 		$(document).ready(function() {
-    $('#fullpage').fullpage({
-        anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage']
-    });
+        $('#fullpage').fullpage({
+            anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage']
+        });
+        $('#signin').click(function(){
+            $('#logindiv').css('display','block');
+        });
+        $('#cancel').click(function(){
+            $('#logindiv').css('display','none');
+        })
 });
 	</script>
 </html>
