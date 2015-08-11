@@ -70,28 +70,6 @@ module.exports = function(passport) {
 		});
 	})
 
-	// router.get('/teacher', isAuthenticated, function(req, res) {
-	// 	var user = req.user;
-	// 	User.findOne({ 'username' : user.username }, function(err, usr) {
-	// 		if (usr.userType === 'teacher') {
-	// 			res.render('teacher', {user:req.user, message: req.flash('message')});
-	// 		} else {
-	// 			res.render('student', {user:req.user, message: req.flash('message')});
-	// 		}
-	// 	});
-	// });
-
-	// router.get('/student', isAuthenticated, function(req, res) {
-	// 	var user = req.user;
-	// 	User.findOne({ 'username' : user.username }, function(err, usr) {
-	// 		if (usr.userType === 'teacher') {
-	// 			res.render('teacher', {user:req.user});
-	// 		} else {
-	// 			res.render('student', {user:req.user});
-	// 		}
-	// 	});
-	// });
-
 	router.get('/signout', function(req, res) {
 		req.logout();
 		res.redirect('/');
