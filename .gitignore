@@ -1,2 +1,3 @@
 node_modules
-4stars/node_modules
+4stars/node_module
+.DS_Store
