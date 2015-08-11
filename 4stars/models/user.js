@@ -12,9 +12,5 @@ var userSchema = new Schema({
 	students: [String]
 })
 
-userSchema.methods.assignStars = function(numStars, cb) {
-	return cb(null, 'hi');
-}
-
 var User = mongoose.model('User', userSchema);
 module.exports = User;

@@ -36,7 +36,7 @@ module.exports = function(passport) {
 			if (usr.userType === 'student') {
 				res.render('shop', {message: req.flash('message')})
 			} else {
-				res.render('home', {user:req.user, message: req.flash('message')});
+				res.render('student', {user:req.user, message: req.flash('message')});
 			}
 		});
 	})
@@ -61,12 +61,15 @@ module.exports = function(passport) {
 		var user = req.user;
 		User.findOne({ 'username' : user.username }, function(err, usr) {
 			if (usr.userType === 'teacher') {
-				usr.assignStars(4, function(err, result) {
-					console.log(result);
-				})
-			} else {
-				res.render('home', {user:req.user});
+				stars = usr.stars;
+				User.update({username: usr.username}, {stars: stars + 4}, function(err, result) {
+					if (err) {
+						console.log(err);
+					}
+					console.log(stars);
+				});
 			}
+			res.render('teacher', {user:req.user});
 		});
 	})
 
