@@ -69,6 +69,11 @@ module.exports = function(passport) {
 							throw err;
 						}
 						console.log('User Registration successful');
+						User.update({username: req.user.username}, {$push: {students: username}}, function(err, res) {
+							if (err) {
+								console.log('IT ERRORED OMG THE WORLD IS GONNA DIE NOW :(');
+							}
+						})
 						return done(null, false, req.flash('message', 'successfully added ' + username));
 					});
 				}

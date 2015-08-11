@@ -36,7 +36,7 @@ module.exports = function(passport) {
 			if (usr.userType === 'student') {
 				res.render('shop', {message: req.flash('message')})
 			} else {
-				res.render('student', {user:req.user, message: req.flash('message')});
+				res.render('teacher', {user:req.user, message: req.flash('message')});
 			}
 		});
 	})
@@ -66,7 +66,6 @@ module.exports = function(passport) {
 					if (err) {
 						console.log(err);
 					}
-					console.log(stars);
 				});
 			}
 			res.render('teacher', {user:req.user});
