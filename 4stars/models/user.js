@@ -9,7 +9,8 @@ var userSchema = new Schema({
 	email: String,
 	stars: Number,
 	userType: String,
-	students: [String]
+	students: [String],
+	reason: String
 })
 
 var User = mongoose.model('User', userSchema);

@@ -30,6 +30,10 @@ module.exports = function(passport) {
 		});
 	})
 
+	router.get('/about', function(req, res) {
+		res.render('about');
+	})
+
 	router.get('/shop', isAuthenticated, function(req, res) {
 		var user = req.user;
 		User.findOne({ 'username' : user.username }, function(err, usr) {
