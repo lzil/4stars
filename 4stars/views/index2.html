@@ -40,6 +40,7 @@
                 <br/>
                 </form>
             </div>
+            <!-- End of login form -->
     </div>
 
     <div class="section" id="section2" data-anchor="secondPage">
@@ -67,8 +68,29 @@
     		<img src="../public/images/lastpage.png"/>
     	</div>
     	<div class="join">
-    		<a href="#">Join now</a>
+    		<a href="#" id="join">Join now</a>
     	</div>
+        <!-- sign up form -->
+        <div id="signupdiv" style="display:none">
+                <form class="form" action="#" id="signupForm">
+                <h3>Sign up</h3>
+                <br/>
+                <label>Email : </label>
+                <input type="email" id="email"/><br/>
+                <br/>
+                <label>Username : </label>
+                <input type="text" id="user"/><br/>
+                <br/>
+                <label>password : </label>
+                <br/>
+                <input type="text" id="password"/><br/>
+                <br/>
+                <input type="button" id="signupbtn" value="Sign up"/>
+                <input type="button" id="cancel2" value="Cancel"/>
+                <br/>
+                </form>
+        </div>
+    <!-- end of sign up form -->
     </div>
 </div>
 </body>
@@ -90,6 +112,12 @@
         });
         $('#cancel').click(function(){
             $('#logindiv').css('display','none');
+        })
+        $('#join').click(function(){
+            $('#signupdiv').css('display','block');
+        });
+        $('#cancel2').click(function(){
+            $('#signupdiv').css('display','none');
         })
 });
 	</script>

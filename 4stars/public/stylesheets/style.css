@@ -143,6 +143,7 @@ html,body{
 }
 #section1 {
   background-color: #1cbab2;
+  overflow: hidden;
 }
 #section1 h1 {
 	font-family: DumbThree;
@@ -151,6 +152,7 @@ html,body{
 }
 #section2 {
   background-color: #ff6b6b; 
+  overflow: hidden;
 }
 #section2 h1 {
 	font-family: DumbThree;
@@ -159,6 +161,7 @@ html,body{
 }
 #section3 {
   background-color: #55f9d0;
+  overflow: hidden;
 }
 #section3 h1 {
 	font-family: DumbThree;
@@ -167,6 +170,7 @@ html,body{
 }
 #section4 {
 	background-color: #375678;
+	overflow: hidden;
 }
 .lastpage{
 	width: 1000px;
@@ -201,7 +205,7 @@ a {
 }
 #logindiv{
 	position: absolute;
-	top: 200px;
+	top: 150px;
 	left: 400px;
 	width: 550px;
 	height: auto;
@@ -209,6 +213,16 @@ a {
 	font-family: Open Sans;
 	color: #1cbab2;
 
+}
+#signupdiv{
+	position: absolute;
+	top: 100px;
+	left: 400px;
+	width: 550px;
+	height: auto;
+	z-index: 10;
+	font-family: Open Sans;
+	color: #1cbab2;
 }
 .form{
 	border-radius:2px;
