@@ -18,8 +18,8 @@ html,body{
 	position: absolute;
 	left: 50px;
 	top: 120px;
-	width: 750px;
-	height: 530px;
+	width: 60%;
+	height: auto;
 }
 #blackboard img{
 	width: 100%;
@@ -27,22 +27,22 @@ html,body{
 }
 .star{
 	position: absolute;
-	left: 680px;
-	top: 90px;
+	left: 55%;
+	top: 100px;
 	z-index: 1;
 }
 .star2{
 	position: absolute;
-	left: 50px;
-	top: 90px;
+	left: 0;
+	top: 100px;
 	z-index: 1;
 }
 #soccer{
 	position: absolute;
-	left: 600px;
+	left: 42%;
 	top: 0px;
-	width: 680px;
-	height: 800px;
+	width: 50%;
+	height: auto;
 }
 #soccer img{
 	width: 100%;
@@ -51,17 +51,17 @@ html,body{
 #bus{
 	position: absolute;
 	left: 50px;
-	top: 90px;
-	width: 750px;
-	height: 530px;
+	top: 7%;
+	width: 56%;
+	height: auto;
 }
 #bus img{
 	width: 100%;
 	height: auto;
 }
 .star_wrapper{
-	width: 600px;
-	height: 600px;
+	width: 800px;
+	height: 800px;
 }
 .star_wrapper img{
 	width: 100%;
@@ -81,9 +81,9 @@ html,body{
 .banner{
 	position: absolute;
 	left: 0;
-	top: 600px;
-	width: 900px;
-	height: 250px;
+	top: 75%;
+	width: 65%;
+	height: auto;
 	z-index: 0;
 }
 .banner img{
@@ -93,9 +93,9 @@ html,body{
 .banner2{
 	position: absolute;
 	right: 0;
-	top: 600px;
-	width: 1000px;
-	height: 300px;
+	top: 75%;
+	width: 65%;
+	height: auto;
 	z-index: 0;
 }
 .banner2 img{
@@ -106,9 +106,9 @@ html,body{
 	float: right;
 	position: absolute;
 	right: 0px;
-	top: 300px;
-	width: 400px;
-	height: 400px;
+	top: 35%;
+	width: 30%;
+	height: auto;
 	z-index: 1;
 }
 #pencil img{
@@ -119,9 +119,9 @@ html,body{
 	float: left;
 	position: absolute;
 	left: 0px;
-	top: 420px;
-	width: 280px;
-	height: 500px;
+	top: 55%;
+	width: 20%;
+	height: auto;
 	z-index: 4;
 }
 #trophy img{
@@ -132,9 +132,9 @@ html,body{
 	float: right;
 	position: absolute;
 	right: -30px;
-	top: 400px;
-	width: 420px;
-	height: 420px;
+	top: 48%;
+	width: 30%;
+	height: auto;
 	z-index: 2;
 }
 #presents img{
@@ -142,8 +142,13 @@ html,body{
 	height: auto;
 }
 #section1 {
-  background-color: #1cbab2;
-  overflow: hidden;
+	background-color: #1cbab2;
+	overflow: hidden;
+}
+#homepage{
+	background-color: #375678;
+	overflow: hidden;	
+	height: 100%;
 }
 #section1 h1 {
 	font-family: DumbThree;
@@ -173,9 +178,9 @@ html,body{
 	overflow: hidden;
 }
 .lastpage{
-	width: 1000px;
-	height: 80%;
-	margin-top: 60px;
+	width: 70%;
+	height: auto;
+	margin-top: 20px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -188,26 +193,26 @@ html,body{
 a {
   color: #00B7FF;
 }
-.join a{
+.learnMore a{
 	color: #1cbab2;
 	font-family: DumbThree;
-	font-size: 45px;
-	width: 500px;
+	font-size: 55px;
+	width: 20%;
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
-	margin-top: -20px;
+	margin-top: -150px;
 }
-.join a:hover{
+.learnMore a:hover{
 	color: #f8ca00;
 	text-decoration: none;
 }
 #logindiv{
 	position: absolute;
-	top: 150px;
-	left: 400px;
-	width: 550px;
+	top: 20%;
+	left: 35%;
+	width: 30%;
 	height: auto;
 	z-index: 10;
 	font-family: Open Sans;
@@ -216,9 +221,9 @@ a {
 }
 #signupdiv{
 	position: absolute;
-	top: 100px;
-	left: 400px;
-	width: 550px;
+	top: 20%;
+	left: 35%;
+	width: 30%;
 	height: auto;
 	z-index: 10;
 	font-family: Open Sans;
@@ -228,17 +233,15 @@ a {
 	border-radius:2px;
 	padding:40px 50px;
 	box-shadow:0 0 15px;
-	font-size:14px;
-	font-weight:bold;
-	width:350px;
-	margin:20px 250px 0 35px;
-	float:left;
+	font-size:20px;
+	width:500px;
 	background-color: #ffffff;
 }
 .form h3{
 	margin-top: 0;
+	text-align: center;
 }
-input{
+.form input{
 	width:100%;
 	height:35px;
 	margin-top:5px;
@@ -246,14 +249,15 @@ input{
 	border-radius:3px;
 	padding:5px;
 }
-input[type=button]{
+.form input[type=button], .form input[type=submit]{
 	background-color: #ffffff;
 	border:1px solid #1cbab2;
 	font-family: Open Sans;
 	font-weight:bold;
 	font-size:18px;
 	color:#1cbab2;
-	width:49%;
+	width:40%;
+	margin-left: 20px
 }
 /*teacher's page*/
 h2{
@@ -440,15 +444,19 @@ ul.user-details{
 #stars_div li{
 	list-style: none;
 	float: left;
-	margin-top: 40px;
+	margin-top: 20px;
 	width: 230px;
 	text-align: center;
 	margin-left: -30px;
 }
+.num_star{
+	font-size: 50px;
+	position: relative;
+	top: 160px;
+}
 #stars_div li img{
 	width: 100%;
-	height: auto;
-	
+	height: auto;	
 }
 a{
 	text-decoration: none;

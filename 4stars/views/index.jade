@@ -3,9 +3,6 @@ extends layout
 block content
     script.
         $(document).ready(function() {
-        $('#fullpage').fullpage({
-        anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage']
-        });
         $('#signin').click(function(){
         $('#logindiv').css('display','block');
         });
@@ -19,93 +16,62 @@ block content
         $('#signupdiv').css('display','none');
         })
         });
-    #fullpage
-      #section1.section(data-anchor='firstPage')
-        .row.homepage_header
-          .col-md-1
-          h1.col-md-6 Shoot for the stars
-          .col-md-3
-          button#signin.btn.btn-default.navbar-btn(type='button', style='margin-right:5px; width:110px; height:50px; background-color:#ff6b6b; color:#ffffff; border:none; font-size:20px; margin-top:30px') Sign in
-        #blackboard
-          img(src='/images/blackboard.png')
-        .star
-          .star_wrapper
-            img(src='/images/green_star.png', style='width:100%; height:auto')
-          p.about
-            | A star-reward system for kids to encourage them to achieve more and become better
-        .banner
-          img(src='/images/banner1.png')
-        #pencil
-          img(src='/images/color_pencil.png')
-        // Login form
-        #logindiv(style='display:none')
-            form#login.form(class='form-signin', action='/login', method='POST')
-                h3 Login Form
-                br
-                label Username : 
-                input#user(type='text', name='username' class='form-control', placeholder='Username',required, autofocus)
-                br
-                br
-                label password : 
-                br
-                input#password(type='password', name='password' class='form-control', placeholder='Password', required)
-                br
-                br
-                input#loginbtn(value='Login', class='btn btn-lg btn-primary btn-block', type='submit')
-                input#cancel(type='button', value='Cancel')
-                br
-                a(href='/signup', class='text-center new-account') Create an account
-                #message
-                if message
-                    h1.text-center.error-message #{message}
-        // End of login form
-      #section2.section(data-anchor='secondPage')
-        .row.homepage_header
-          .col-md-1
-          h1.col-md-6 Shoot for the stars2
-        .star2
-          .star_wrapper
-            img(src='/images/blue_star.png', style='width:100%; height:auto')
-          p.about(style='color:#ffffff;')
-            | A star-reward system for kids to encourage them to achieve more and become better
-        #soccer
-          img(src='/images/center_collage2.png')
-        .banner2
-          img(src='/images/banner2.png')
-        #trophy
-          img(src='/images/trophy.png')
-      #section3.section(data-anchor='thirdPage')
-        .row.homepage_header
-          .col-md-1
-          h1.col-md-6 Shoot for the stars3
-        #bus
-          img(src='/images/bus.png')
-        .star
-          .star_wrapper
-            img(src='/images/pink_star.png', style='width:100%; height:auto')
-          p.about
-            | A star-reward system for kids to encourage them to achieve more and become better
-        .banner
-          img(src='/images/banner3.png')
-        #presents
-          img(src='/images/presents.png')
-      #section4.section.fp-section.fp-table(data-anchor='fourthPage')
-        .lastpage
-          img(src='/images/lastpage.png')
-        .join
-          a#join(href='#') Join now
-        // sign up form
-        #signupdiv(style='display:none')
-          form(class='form-signin', action='/signup', method='POST')
-            input(type='text', name='username', class='form-control', placeholder='Username',required, autofocus)
-            input(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
-            input(type='email', name='email', class='form-control', placeholder='Email',required)
-            input(type='text', name='firstName', class='form-control', placeholder='First Name',required)
-            input(type='text', name='lastName', class='form-control', placeholder='Last Name',required)
-            button(class='btn btn-lg btn-primary btn-block', type='submit') Register
-            span.clearfix
-          #message
-              if message
+    #homepage.section
+      .col-md-10.col-lg-10
+      .col-md-1.col-lg-1
+        button#signin.btn.btn-default.navbar-btn(type='button', style='margin-right:5px; width:110px; height:50px; background-color:#ff6b6b; color:#ffffff; border:none; font-size:20px; margin-top:30px') Sign in
+      .col-md-1.col-lg-1
+        button#join.btn.btn-default.navbar-btn(type='button', style='margin-right:5px; width:110px; height:50px; background-color:#1cbab2; color:#ffffff; border:none; font-size:20px; margin-top:30px') Sign up
+      .lastpage
+        img(src='/images/lastpage.png')
+      .learnMore
+        a(href='/about') Learn more
+      // Login form
+      #logindiv(style='display:none')
+        form#login.form(action='/login', method='POST')
+            h3 Login
+            br
+            label Username : 
+            input#user(type='text', name='username' class='form-control', placeholder='Username',required, autofocus)
+            br
+            br
+            label password : 
+            br
+            input#password(type='password', name='password' class='form-control', placeholder='Password', required)
+            br
+            br
+            input#loginbtn(value='Login', type='submit')
+            input#cancel(type='button', value='Cancel')
+            br
+            #message
+            if message
                 h1.text-center.error-message #{message}
-        // end of sign up form
+      // End of login form
+      // sign up form
+      #signupdiv(style='display:none')
+        form#signupForm.form(action='/signup', method='POST')
+          h3 Sign up
+            br
+            br
+            input(type='text', name='name', placeholder='Username',required, autofocus)
+            br
+            br
+            input(type='password', name='password', placeholder='Password', required)
+            br
+            br
+            input(type='email', name='email', placeholder='Email',required)
+            br
+            br
+            input(type='text', name='firstName',placeholder='First Name',required)
+            br 
+            br
+            input(type='text', name='lastName', placeholder='Last Name',required)
+            br
+            br
+            input(type='submit', value='Register')
+          span.clearfix
+        #message
+            if message
+              h1.text-center.error-message #{message}
+      // end of sign up form
   

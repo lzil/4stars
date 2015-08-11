@@ -14,25 +14,23 @@
     <div class="container" style="height:100%">
     	<div class="row">
 	    	<h2 class="col-md-6">Shoot for the stars</h2>
-	    	<div class="col-md-4"></div>
+	    	<div class="col-md-2"></div>
 	    	<div class="col-md-2" id="username">Hello, Tom</div>
+            <button type="button" id="signin" class="col-md-2 btn btn-default navbar-btn" style="margin-right:-15px; margin-top:-20px; width:110px; height:38px; background-color:#1cbab2; color:#ffffff; border:none; font-size:20px; margin-top:30px">Log out</button>
+            
     	</div>
         <div class="row" style="height:90%; margin-left:-50px">
             <div class="col-lg-3" id="student_left_nav">
                 <div id="logo"><img src="../public/images/lastpage.png"></div>
-                <ul>
-                    <li><a href="#" id="starShop">Star Shop</a></li>
-                    <li><a href="#" id="myAccount">My Account</a></li>
-                </ul>
                 <ul id="stars_div">
                     <li>You have</li>
-                    <li><img src="../public/images/yellow_star.png"></li>
-                    <li>for this week</li>
+                    <li style="margin-top:-30px;"><div class="num_star">35</div><img src="../public/images/yellow_star.png"></li>
+                    <li>in total</li>
                 </ul>
             </div>
             <div class="col-lg-9 col-md-9" id="student_right_display">
                 <div id="star_shop_items">
-                    <h2 style="text-align:center;">Redeem your stars</h2>
+                    <h2 style="text-align:center;">Star shop</h2>
                     <div class="items">
                       <div class="row" style="margin-top: 20px">
                         <div class="col-lg-3 single_item"><img style="height:160px; width:160px; margin-top:5px" src="../public/images/teddybear.jpg"><ul class="price"><li class="small_star"><img src="../public/images/yellow_star.png"></li><li class="multiple">x 30</li></ul><button type="button" class="btn redeem_btn">Get it!</button></div>
@@ -54,17 +52,7 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#star_shop_items').hide();
-        $("#starShop").click(function(){
-            $("#starShop").css("color", "#ff6b6b");
-            $("#myAccount").css('color','#1cbab2');
-            $('#star_shop_items').show();
-        });
-
-        $("#myAccount").click(function(){
-            $("#starShop").css("color", "#1cbab2");
-            $("#myAccount").css('color','#ff6b6b');
-        });
+        
     });
 </script>
 </html>
