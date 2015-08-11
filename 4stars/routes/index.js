@@ -61,7 +61,7 @@ module.exports = function(passport) {
 		var user = req.user;
 		User.findOne({ 'username' : user.username }, function(err, usr) {
 			if (usr.userType === 'teacher') {
-				stars = usr.stars;
+				var stars = usr.stars;
 				User.update({username: usr.username}, {stars: stars + 4}, function(err, result) {
 					if (err) {
 						console.log(err);
