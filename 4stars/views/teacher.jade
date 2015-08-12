@@ -40,6 +40,8 @@ block content
 						button#logout.col-sm-2.col-md-2.col-lg-2.btn.btn-default.navbar-btn(type='submit', style='margin-right:-15px; margin-top:-20px; width:110px; height:38px; background-color:#1cbab2; color:#ffffff; border:none; font-size:20px; margin-top:30px') Log out
 				.row(style='height:90%; margin-left:-50px')
 					#teacher_left_nav.col-sm-3.col-md-3.col-lg-3
+						#logo
+							img(src='/images/lastpage.png')
 						ul
 							li
 								a#myStudents(href='#') My students
@@ -47,12 +49,7 @@ block content
 								a#addStudents(href='#') Add students
 							li
 								a#assignStars(href='#') Assign stars
-						ul#stars_div
-							li(style='margin-top:100px;') You have
-							li(style='margin-top:-30px;')
-								.num_star 80
-								img(src='/images/yellow_star.png')
-							li for this week
+				
 					#teacher_right_display.col-sm-9.col-md-9.col-lg-9
 						#allStudents
 							each student in students
@@ -81,17 +78,20 @@ block content
 							input(type='submit', value='Register Student')
 						form#starForm(action='/assignStars', method='POST')
 							| Select students:     
-							select(name='name')
+							select(name='name' style='width:200px')
 								each student in students
 									option= student.username
 							br
 							br
-							|Number of stars:     
-							input(type='text', name='stars')
+							|Number of stars: 
+							- var n = 1    
+							select(name='stars' style='width:100px')
+								while n<=10
+									option= n++
 							br
 							br
 							|Reason:     
-							select(name='reason')
+							select(name='reason' style='width:200px')
 								option Academics
 								option Sports
 								option Helping others

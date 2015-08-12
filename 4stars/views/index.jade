@@ -3,24 +3,34 @@ block content
     script.
         $(document).ready(function() {
         $('#signin').click(function(){
-        $('#logindiv').css('display','block');
+        if($('#signupdiv').css('display')=='block'){
+          $('#signupdiv').css('display','none');
+          $('#logindiv').css('display','block');
+        }else{
+          $('#logindiv').css('display','block');
+        }    
         });
         $('#cancel').click(function(){
         $('#logindiv').css('display','none');
         })
         $('#join').click(function(){
-        $('#signupdiv').css('display','block');
+        if($('#logindiv').css('display')=='block'){
+          $('#logindiv').css('display','none');
+          $('#signupdiv').css('display','block');
+        }else{
+          $('#signupdiv').css('display','block');
+        }
         });
         $('#cancel2').click(function(){
         $('#signupdiv').css('display','none');
         })
         });
     #homepage.section
-      .col-sm-10.col-md-10.col-lg-10
-      .col-sm-1.col-md-1.col-lg-1
-        button#signin.btn.btn-default.navbar-btn(type='button', style='margin-right:5px; width:110px; height:50px; background-color:#ff6b6b; color:#ffffff; border:none; font-size:20px; margin-top:30px') Sign in
-      .col-sm-1.col-md-1.col-lg-1
-        button#join.btn.btn-default.navbar-btn(type='button', style='margin-right:5px; width:110px; height:50px; background-color:#1cbab2; color:#ffffff; border:none; font-size:20px; margin-top:30px') Sign up
+      .col-sm-8.col-md-8.col-lg-10
+      .col-sm-2.col-md-2.col-lg-1
+        button#signin.btn.btn-default.navbar-btn(type='button', style='margin-right:5px; margin-left:10px; width:110px; height:50px; background-color:#ff6b6b; color:#ffffff; border:none; font-size:20px; margin-top:30px') Sign in
+      .col-sm-2.col-md-2.col-lg-1
+        button#join.btn.btn-default.navbar-btn(type='button', style='margin-left:10px; width:110px; height:50px; background-color:#1cbab2; color:#ffffff; border:none; font-size:20px; margin-top:30px') Sign up
       .lastpage
         img(src='/images/lastpage.png')
       .learnMore
