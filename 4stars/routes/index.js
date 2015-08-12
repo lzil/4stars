@@ -36,7 +36,7 @@ module.exports = function(passport) {
 					})
 				}
 			} else {
-				var prizes = [{name: 'bear', src: '/images/teddybear.jpg', price: 30}, {name: 'notebooks', src: '/images/notebooks.jpg', price: 15}, {name:'cape', src: '/images/superman.jpg', price:10}, {name:'candy', src:'/images/candies.jpg', price:12}, {name: 'recess', src:'/images/recess.jpg', price:5}, {name:'colored pencils', src:'/images/color_pencils.jpg', price:20}, {name:'computer', src:'/images/computer.jpg', price:15}, {name:'movie', src:'/images/movie.jpg', price:20}];
+				var prizes = [{name: 'teddy bear', src: '/images/teddybear.jpg', price: 30}, {name: 'notebook', src: '/images/notebooks.jpg', price: 15}, {name:'superman cape for a day', src: '/images/superman.jpg', price:10}, {name:'candy', src:'/images/candies.jpg', price:12}, {name: '15 min extra recess', src:'/images/recess.jpg', price:5}, {name:'colored pencils', src:'/images/color_pencils.jpg', price:20}, {name:'30 mins computer time', src:'/images/computer.jpg', price:15}, {name:'movie', src:'/images/movie.jpg', price:20}];
 				var buckets = [];
 				var bucket = []
 				for (var i = 0; i < prizes.length; i++) {
