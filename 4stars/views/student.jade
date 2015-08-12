@@ -21,64 +21,21 @@ block content
 				#star_shop_items
 					h2(style='text-align:center;') Star shop
 					.items
-						.row(style='margin-top: 20px')
-							.col-lg-3.single_item
-								img(style='height:160px; width:160px; margin-top:5px', src='/images/teddybear.jpg')
-								ul.price
-									li.small_star
-										img(src='/images/yellow_star.png')
-									li.multiple x 30
-								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
-							.col-lg-3.single_item
-								img(style='height:160px; width:160px; margin-top:5px', src='/images/notebooks.jpg')
-								ul.price
-									li.small_star
-										img(src='/images/yellow_star.png')
-									li.multiple x 15
-								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
-							.col-lg-3.single_item
-								img(style='height:160px; width:160px; margin-top:5px', src='/images/superman.jpg')
-								ul.price
-									li.small_star
-										img(src='/images/yellow_star.png')
-									li.multiple x 10
-								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
-							.col-lg-3.single_item
-								img(style='height:160px; width:160px; margin-top:5px', src='/images/candies.jpg')
-								ul.price
-									li.small_star
-										img(src='/images/yellow_star.png')
-									li.multiple x 12
-								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
-						.row(style='margin-top: 20px')
-							.col-lg-3.single_item
-								img(style='height:160px; width:160px; margin-top:5px', src='/images/recess.jpg')
-								ul.price
-									li.small_star
-										img(src='/images/yellow_star.png')
-									li.multiple x 5
-								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
-							.col-lg-3.single_item
-								img(style='height:160px; width:160px; margin-top:5px', src='/images/color_pencils.jpg')
-								ul.price
-									li.small_star
-										img(src='/images/yellow_star.png')
-									li.multiple x 20
-								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
-							.col-lg-3.single_item
-								img(style='height:160px; width:160px; margin-top:5px', src='/images/computer.jpg')
-								ul.price
-									li.small_star
-										img(src='/images/yellow_star.png')
-									li.multiple x 15
-								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
-							.col-lg-3.single_item
-								img(style='height:160px; width:160px; margin-top:5px', src='/images/movie.jpg')
-								ul.price
-									li.small_star
-										img(src='/images/yellow_star.png')
-									li.multiple x 20
-								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
+						each bucket in prizes
+							.row(style='margin-top: 20px')
+								each prize in bucket
+									.col-lg-3.single_item
+										img(style='height:160px; width:160px; margin-top:5px', src='#{prize.src}')
+										ul.price
+											li.small_star
+												img(src='/images/yellow_star.png')
+											li.multiple x #{prize.price}
+										if user.stars > prize.price
+											form(action='/redeem', method='post')
+												input(type='text', name='price', value='#{prize.price}', style='display:none')
+												button.btn.redeem_btn(type='submit', data-toggle="modal", data-target="#popup") Get it!
+										else
+											button.btn.redeem_btn(disabled, type='button') Get it!
 				#popup.modal(role='dialog' style='margin-top:200px')
 					.modal-dialog
 						.modal-content
@@ -86,4 +43,5 @@ block content
 							.modal-body
 								h3 Congratulations! Your prize is on its way! Yayyy!
 							.modal-footer
-								button.btn.btn-default(type='button', data-dismiss='modal') Close
+								form(action='/refreshthepage', method='get')
+									button.btn.btn-default(type='submit', data-dismiss='modal') Close

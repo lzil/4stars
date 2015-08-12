@@ -35,9 +35,21 @@ module.exports = function(passport) {
 						}
 					})
 				}
-				
 			} else {
-				res.render('student', {user:req.user, message: req.flash('message')});
+				var prizes = [{name: 'bear', src: '/images/teddybear.jpg', price: 30}, {name: 'notebooks', src: '/images/notebooks.jpg', price: 15}, {name:'cape', src: '/images/superman.jpg', price:10}, {name:'candy', src:'/images/candies.jpg', price:12}, {name: 'recess', src:'/images/recess.jpg', price:5}, {name:'colored pencils', src:'/images/color_pencils.jpg', price:20}, {name:'computer', src:'/images/computer.jpg', price:15}, {name:'movie', src:'/images/movie.jpg', price:20}];
+				var buckets = [];
+				var bucket = []
+				for (var i = 0; i < prizes.length; i++) {
+					bucket.push(prizes[i]);
+					if (i % 4 === 3) {
+						buckets.push(bucket);
+						bucket = [];
+					}
+				}
+				if (bucket.length > 0) {
+					buckets.push(bucket);
+				}
+				res.render('student', {user:req.user, prizes:buckets, message: req.flash('message')});
 			}
 		});
 	})
@@ -71,7 +83,6 @@ module.exports = function(passport) {
 
 	router.post('/assignStars', isAuthenticated, function(req, res) {
 		var user = req.user;
-		console.log(req.body);
 		User.findOne({ 'username' : req.body.name }, function(err, usr) {
 			if (user.userType === 'teacher') {
 				var stars = usr.stars;
@@ -86,11 +97,28 @@ module.exports = function(passport) {
 		});
 	})
 
+	router.post('/redeem', isAuthenticated, function(req, res) {
+		user = req.user;
+		User.findOne({ 'username' : user.username }, function(err, usr) {
+			var stars = usr.stars;
+			User.update({username: usr.username}, {stars: stars - req.body.price}, function(err, result) {
+				if (err) {
+					console.log(err);
+				}
+			});
+			//res.redirect('/home');
+		});
+	})
+
 	router.get('/signout', function(req, res) {
 		console.log('meh')
 		req.logout();
 		res.redirect('/');
 	});
+
+	router.get('/refreshthepage', function(req, res) {
+		res.redirect('/home');
+	})
 
 	return router;
 }
