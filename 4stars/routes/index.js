@@ -23,7 +23,17 @@ module.exports = function(passport) {
 		var user = req.user;
 		User.findOne({ 'username' : user.username }, function(err, usr) {
 			if (usr.userType === 'teacher') {
-				res.render('teacher', {user:req.user, message: req.flash('message')});
+				var students = [];
+				for (var i = 0; i < usr.students.length; i++) {
+					User.findOne({ 'username' : usr.students[i]}, function(err, student) {
+						students.push(student);
+						console.log(students)
+						if (students.length == usr.students.length - 1) {
+							res.render('teacher', {user:req.user, students: students, message: req.flash('message')});
+						}
+					})
+				}
+				
 			} else {
 				res.render('student', {user:req.user, message: req.flash('message')});
 			}
