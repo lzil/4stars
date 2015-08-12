@@ -1,15 +1,80 @@
 extends layout
-
-block content
-	div.container
-		div.row
-			div.col-sm-6.col-md-4.col-md-offset-4
-				#user
-					h1.text-center.login-title Welcome #{user.firstName}. Check your details below: alsdhlfjkasdhlfkahlsdfj
-						div.signup-wall
-							ul.user-details
-								li Username ---> #{user.username}
-								li First Name ---> #{user.firstName} 
-								li Last Name ---> #{user.lastName}
-						a(href='/signout', class='text-center new-account') Sign Out
-						a(href='/shop', class='text-center new-account') Go to the star shop lol
+block content	
+	div.container(style='height:100%')
+		.row
+			h2.col-md-6 Shoot for the stars
+			.col-md-2
+			#username.col-md-2 Hello, #{user.firstName}
+			button#signin.col-md-2.btn.btn-default.navbar-btn(type='button', style='margin-right:-15px; margin-top:-20px; width:110px; height:38px; background-color:#1cbab2; color:#ffffff; border:none; font-size:20px; margin-top:30px') Log out
+		.row(style='height:90%; margin-left:-50px')
+			#student_left_nav.col-lg-3
+				#logo
+					img(src='/images/lastpage.png')
+				ul#stars_div
+					li(style='margin-top:30px;') You have
+					li(style='margin-top:-30px;')
+						.num_star #{user.stars}
+						img(src='/images/yellow_star.png')
+					li in total
+			#student_right_display.col-lg-9.col-md-9
+				#star_shop_items
+					h2(style='text-align:center;') Star shop
+					.items
+						.row(style='margin-top: 20px')
+							.col-lg-3.single_item
+								img(style='height:160px; width:160px; margin-top:5px', src='/images/teddybear.jpg')
+								ul.price
+									li.small_star
+										img(src='/images/yellow_star.png')
+									li.multiple x 30
+								button.btn.redeem_btn(type='button') Get it!
+							.col-lg-3.single_item
+								img(style='height:160px; width:160px; margin-top:5px', src='/images/notebooks.jpg')
+								ul.price
+									li.small_star
+										img(src='/images/yellow_star.png')
+									li.multiple x 15
+								button.btn.redeem_btn(type='button') Get it!
+							.col-lg-3.single_item
+								img(style='height:160px; width:160px; margin-top:5px', src='/images/superman.jpg')
+								ul.price
+									li.small_star
+										img(src='/images/yellow_star.png')
+									li.multiple x 10
+								button.btn.redeem_btn(type='button') Get it!
+							.col-lg-3.single_item
+								img(style='height:160px; width:160px; margin-top:5px', src='/images/candies.jpg')
+								ul.price
+									li.small_star
+										img(src='/images/yellow_star.png')
+									li.multiple x 12
+								button.btn.redeem_btn(type='button') Get it!
+						.row(style='margin-top: 20px')
+							.col-lg-3.single_item
+								img(style='height:160px; width:160px; margin-top:5px', src='/images/recess.jpg')
+								ul.price
+									li.small_star
+										img(src='/images/yellow_star.png')
+									li.multiple x 5
+								button.btn.redeem_btn(type='button') Get it!
+							.col-lg-3.single_item
+								img(style='height:160px; width:160px; margin-top:5px', src='/images/color_pencils.jpg')
+								ul.price
+									li.small_star
+										img(src='/images/yellow_star.png')
+									li.multiple x 20
+								button.btn.redeem_btn(type='button') Get it!
+							.col-lg-3.single_item
+								img(style='height:160px; width:160px; margin-top:5px', src='/images/computer.jpg')
+								ul.price
+									li.small_star
+										img(src='/images/yellow_star.png')
+									li.multiple x 15
+								button.btn.redeem_btn(type='button') Get it!
+							.col-lg-3.single_item
+								img(style='height:160px; width:160px; margin-top:5px', src='/images/movie.jpg')
+								ul.price
+									li.small_star
+										img(src='/images/yellow_star.png')
+									li.multiple x 20
+								button.btn.redeem_btn(type='button') Get it!

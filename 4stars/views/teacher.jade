@@ -1,118 +1,120 @@
 extends layout
-
 block content
-	div.container
-		div.row
-			div.col-sm-6.col-md-4.col-md-offset-4
-				#user
-					h1.text-center.login-title Welcome #{user.firstName}. Check your details below:
-						div.signup-wall
-							ul.user-details
-								li Username ---> #{user.username}
-								li Email    ---> #{user.email}
-								li First Name ---> #{user.firstName} 
-								li Last Name ---> #{user.lastName}
-						a(href='/signout', class='text-center new-account') Sign Out
-						a(href='/assignStars', class='text-center new-account') Assign Stars
-				#addastudent
-					h1.text-center.login-title Add a student:
-						div.signup-wall
-							form(class='form-signin', action='/createStudent', method='POST')
-								input(type='text', name='username', class='form-control', placeholder='Username',required, autofocus)
-								input(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
-								input(type='text', name='firstName', class='form-control', placeholder='First Name',required)
-								input(type='text', name='lastName', class='form-control', placeholder='Last Name',required)
-								button(class='btn btn-lg btn-primary btn-block', type='submit') Register Student
-								span.clearfix
-						#message
-							if message
-								h1.text-center.error-message #{message}
-		hr
-		.container(style='height:100%')
-			.row
-				h2.col-md-6 Shoot for the stars
-				.col-md-4
-				#username.col-md-2 Hello, Ms. Walker
-			.row(style='height:90%; margin-left:-50px')
-				#teacher_left_nav.col-lg-3
-					ul
-						li
-							a#myStudents(href='#') My students
-						li
-							a#addStudents(href='#') Add students
-						li
-							a#assignStars(href='#') Assign stars
-					ul#stars_div
-						li You have
-						li
-							img(src='../public/images/yellow_star.png')
-						li for this week
-				#teacher_right_display.col-lg-9
-					form#addForm
-						| Student name:     
-						input#name(type='text', name='name')
-						br
-						br
-						|                     Student email:     
-						input#email(type='email', name='email')
-						br
-						br
-						button Add another
-						br
-						br
-						input(type='submit', name='Complete', value='Complete')
-					form#starForm
-						| Select students:     
-						input(type='text', name='name')
-						br
-						br
-						|                     Number of stars:     
-						input#password(type='email', name='password')
-						br
-						br
-						|                     Reason:     
-						textarea(rows='5', cols='25')
-						br
-						br
-						input(type='submit', name='Complete', value='Complete')
-	script(type='text/javascript').
-		$(document).ready(function(){
-		$("#addForm").hide();
-		$("#starForm").hide();
-		$("#myStudents").click(function(){
-		$("#myStudents").css("color", "#ff6b6b");
-		$("#addStudents").css('color','#1cbab2');
-		$("#assignStars").css('color','#1cbab2');
-		});
-		$("#addStudents").click(function(){
-		$("#myStudents").css("color", "#1cbab2");
-		$("#addStudents").css('color','#ff6b6b');
-		$("#assignStars").css('color','#1cbab2');
-		$("#addForm").show();
-		$("#starForm").hide();
-		});
-		$("#assignStars").click(function(){
-		$("#myStudents").css("color", "#1cbab2");
-		$("#addStudents").css('color','#1cbab2');
-		$("#assignStars").css('color','#ff6b6b');
-		$("#starForm").show();
-		$("#addForm").hide();
-		});
-		});
-		// function toMyStudents(){
-		//     document.getElementById("myStudents").style.cssText='color: #ff6b6b';
-		//     document.getElementById("addStudents").style.cssText='color: #1cbab2';
-		//     document.getElementById("assignStars").style.cssText='color: #1cbab2';
-		// }
-		// function toAddStudents(){
-		//     document.getElementById("addStudents").style.cssText='color: #ff6b6b';
-		//     document.getElementById("myStudents").style.cssText='color: #1cbab2';
-		//     document.getElementById("assignStars").style.cssText='color: #1cbab2';
-		//     document.getElementById("addForm").style.display="block";
-		// }
-		// function toAssignStars(){
-		//     document.getElementById("teacher_right_display").innerHTML = "whatever3";
-		//     document.getElementById("assignStars").style.cssText='color: #ff6b6b';
-		//      document.getElementById("myStudents").style.cssText='color: #1cbab2';
-		//     document.getElementById("addStudents").style.cssText='color: #1cbab2';
-		// }
+			script(type='text/javascript').
+				$(document).ready(function(){
+				$("#myStudents").css("color", "#ff6b6b");
+				$("#allStudents").show();
+				$("#addForm").hide();
+				$("#starForm").hide();
+				$("#myStudents").click(function(){
+				$("#myStudents").css("color", "#ff6b6b");
+				$("#addStudents").css('color','#1cbab2');
+				$("#assignStars").css('color','#1cbab2');
+				$("#allStudents").show();
+				$("#addForm").hide();
+				$("#starForm").hide();
+				});
+				$("#addStudents").click(function(){
+				$("#myStudents").css("color", "#1cbab2");
+				$("#addStudents").css('color','#ff6b6b');
+				$("#assignStars").css('color','#1cbab2');
+				$("#addForm").show();
+				$("#allStudents").hide();
+				$("#starForm").hide();
+				});
+				$("#assignStars").click(function(){
+				$("#myStudents").css("color", "#1cbab2");
+				$("#addStudents").css('color','#1cbab2');
+				$("#assignStars").css('color','#ff6b6b');
+				$("#starForm").show();
+				$("#allStudents").hide();
+				$("#addForm").hide();
+				});
+				});
+			.container(style='height:100%; width:90%')
+				.row
+					h2.col-sm-6.col-md-6.col-lg-6 Shoot for the stars
+					.col-sm-2.col-md-2.col-lg-2
+					#username.col-sm-2.col-md-2.col-lg-2 Hello, Ms.#{user.lastName}
+					button#signin.col-sm-2.col-md-2.col-lg-2.btn.btn-default.navbar-btn(type='button', style='margin-right:-15px; margin-top:-20px; width:110px; height:38px; background-color:#1cbab2; color:#ffffff; border:none; font-size:20px; margin-top:30px') Log out
+				.row(style='height:90%; margin-left:-50px')
+					#teacher_left_nav.col-sm-3.col-md-3.col-lg-3
+						ul
+							li
+								a#myStudents(href='#') My students
+							li
+								a#addStudents(href='#') Add students
+							li
+								a#assignStars(href='#') Assign stars
+						ul#stars_div
+							li(style='margin-top:100px;') You have
+							li(style='margin-top:-30px;')
+								.num_star 80
+								img(src='/images/yellow_star.png')
+							li for this week
+					#teacher_right_display.col-sm-9.col-md-9.col-lg-9
+						#allStudents
+							ul.each_student
+								li.student_name Tom Smith:
+								li.small_star2
+									img(src='/images/yellow_star.png')
+								li.multiple2 x 42
+							ul.each_student
+								li.student_name Jessica Williams:
+								li.small_star2
+									img(src='/images/yellow_star.png')
+								li.multiple2 x 36
+							ul.each_student
+								li.student_name Justin Lee:
+								li.small_star2
+									img(src='/images/yellow_star.png')
+								li.multiple2 x 30
+							ul.each_student
+								li.student_name Michelle Hinman:
+								li.small_star2
+									img(src='/images/yellow_star.png')
+								li.multiple2 x 25
+							ul.each_student
+								li.student_name Sarah King:
+								li.small_star2
+									img(src='/images/yellow_star.png')
+								li.multiple2 x 18
+						form#addForm(action='/createStudent', method='POST')
+							|Username:     
+							input#name(type='text', name='username')
+							br
+							br
+							|Password:     
+							input#email(type='password', name='password')
+							br
+							br
+							|First Name: 
+							input(type='text', name='firstName',required)
+							br
+							br
+							|Last Name: 
+							input(type='text', name='lastName',required)
+							br
+							br
+							input(type='submit', value='Register Student')
+						form#starForm
+							| Select students:     
+							select
+								option Tom
+								option Jerry
+								option Anna
+							br
+							br
+							|Number of stars:     
+							input(type='text', name='stars')
+							br
+							br
+							|Reason:     
+							select
+								option Academics
+								option Sports
+								option Helping others
+							br
+							br
+							input(type='submit', name='Complete', value='Complete')
+	

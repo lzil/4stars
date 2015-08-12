@@ -68,15 +68,16 @@ html,body{
 	height: auto;
 }
 .about{
-	width: 300px;
+	width: 400px;
 	text-align: center;
 	font-family: Open Sans;
 	font-size: 26px;
 	vertical-align: middle;
 	position: absolute;
-	left: 150px;
-	top: 230px;
+	left: 190px;
+	top: 260px;
 	color: #1cbab2;
+	z-index: 10;
 }
 .banner{
 	position: absolute;
@@ -106,8 +107,8 @@ html,body{
 	float: right;
 	position: absolute;
 	right: 0px;
-	top: 35%;
-	width: 30%;
+	top: 48%;
+	width: 25%;
 	height: auto;
 	z-index: 1;
 }
@@ -118,8 +119,8 @@ html,body{
 #trophy{
 	float: left;
 	position: absolute;
-	left: 0px;
-	top: 55%;
+	left: -20px;
+	top: 65%;
 	width: 20%;
 	height: auto;
 	z-index: 4;
@@ -132,7 +133,7 @@ html,body{
 	float: right;
 	position: absolute;
 	right: -30px;
-	top: 48%;
+	top: 52%;
 	width: 30%;
 	height: auto;
 	z-index: 2;
@@ -241,7 +242,7 @@ a {
 	margin-top: 0;
 	text-align: center;
 }
-.form input{
+input{
 	width:100%;
 	height:35px;
 	margin-top:5px;
@@ -249,7 +250,7 @@ a {
 	border-radius:3px;
 	padding:5px;
 }
-.form input[type=button], .form input[type=submit]{
+input[type=button],input[type=submit]{
 	background-color: #ffffff;
 	border:1px solid #1cbab2;
 	font-family: Open Sans;
@@ -281,8 +282,8 @@ hr{
 #teacher_left_nav{
 	border: 1px solid #cdcdcc;
 	margin-top: 10px;
-	min-height: 700px;
-	max-height: 95%;
+	height: 95%;
+	font-size: 40px;
 }
 #teacher_left_nav ul{
 	width: 250px;
@@ -302,8 +303,8 @@ hr{
 #student_left_nav{
 	border: 1px solid #cdcdcc;
 	margin-top: 10px;
-	min-height: 700px;
-	max-height: 95%;
+	height: 95%;
+	font-size: 40px;
 }
 #student_left_nav ul{
 	margin-top: -40px;
@@ -324,20 +325,18 @@ hr{
 #myStudents, #addStudents, #assignStars, #starShop, #myAccount{
 	font-family: DumbTwo;
 	color: #1cbab2;
-	font-size: 22px;
+	font-size: 24px;
 	text-decoration: none;
 }
 #teacher_right_display{
 	border: 1px solid #cdcdcc;
 	margin-top: 10px;
-	min-height: 700px;
-	max-height: 95%;
+	height: 95%;
 }
 #student_right_display{
 	border: 1px solid #cdcdcc;
 	margin-top: 10px;
-	min-height: 700px;
-	max-height: 95%;
+	height: 95%;
 	background-color: #ffffff;
 	padding: 10px;
 	overflow: scroll; 
@@ -439,7 +438,7 @@ ul.user-details{
 	font-family: DumbTwo;
 	color: #1cbab2;
 	font-size: 24px;
-	margin-top: 50px;
+	margin-top: 100px;
 }
 #stars_div li{
 	list-style: none;
@@ -462,7 +461,7 @@ a{
 	text-decoration: none;
 }
 #addForm, #starForm{
-	margin-top: 50px;
+	margin-top: 100px;
 	width: 480px;
 	margin-left: auto;
 	margin-right: auto;
@@ -509,6 +508,43 @@ a{
 }
 .multiple {
 	font-size:20px;
+	font-family: Open Sans;
+	position: relative;
+	top: 5px;
+	margin-left: 10px;
+}
+#allStudents{
+	font-size:30px;
+	font-family: Open Sans;
+	color: #999;
+	margin-top: 50px;
+	overflow: scroll;
+}
+.each_student{
+	width: 500px;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
+.each_student li{
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 25px;
+}
+.student_name{
+	margin-right: 30px;
+}
+.small_star2{
+	width: 40px;
+	height: 40px;
+	margin-left: 0px
+}
+.small_star2 img{
+	width: 100%;
+	height: auto;
+}
+.multiple2 {
+	font-size:30px;
 	font-family: Open Sans;
 	position: relative;
 	top: 5px;

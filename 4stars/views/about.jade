@@ -30,7 +30,7 @@ block content
 				.star_wrapper
 					img(src='/images/green_star.png', style='width:100%; height:auto')
 				p.about
-					| A star-reward system for kids to encourage them to achieve more and become better
+					| Shoot for the stars is a star-reward and recognition system that empowers teachers with a tool to make learning in school fun and encourages kids to do better. Teachers can allocate “stars” to students for their “activities” and students can use these “stars” to redeem gifts.
 			.banner
 				img(src='/images/banner1.png')
 			#pencil
@@ -43,7 +43,7 @@ block content
 				.star_wrapper
 					img(src='/images/blue_star.png', style='width:100%; height:auto')
 				p.about(style='color:#ffffff;')
-					| A star-reward system for kids to encourage them to achieve more and become better
+					| We believe in the magic of positive reinforcement. Anything from helping in keeping the school premises clean to excelling in academics, sports or arts – deserves recognition! And deciding the number of stars to allocate to a particular activity is left to the discretion of the teacher!
 			#soccer
 				img(src='/images/center_collage2.png')
 			.banner2
@@ -59,8 +59,8 @@ block content
 			.star
 				.star_wrapper
 					img(src='/images/pink_star.png', style='width:100%; height:auto')
-				p.about
-					| A star-reward system for kids to encourage them to achieve more and become better
+				p.about(style='color:#ffffff;')
+					| What our teachers say… “Excellent! The idea seems well thought of and fabulously useful to both teacher and student.” -  Lesko Joan Geordina, PS119
 			.banner
 				img(src='/images/banner3.png')
 			#presents
@@ -74,7 +74,7 @@ block content
 			.lastpage
 				img(src='/images/lastpage.png')
 			.learnMore
-				a(href='/index') Home
+				a(href='/') Home
 			// Login form
 			#logindiv(style='display:none')
 				form#login.form(action='/login', method='POST')
@@ -93,8 +93,8 @@ block content
 					input#cancel(type='button', value='Cancel')
 					br
 					#message
-					if message
-					h1.text-center.error-message #{message}
+						if message
+							h1.text-center.error-message #{message}
 					// End of login form
 					// sign up form
 			#signupdiv(style='display:none')
@@ -117,10 +117,10 @@ block content
 					input(type='text', name='lastName', placeholder='Last Name',required)
 					br
 					br
-					input(type='submit', value='Register')
-					span.clearfix
+					input(type='submit', value='register')
+					input#cancel(type='button', value='Cancel')
 					#message
-					if message
-					h1.text-center.error-message #{message}
+						if message
+							h1.text-center.error-message #{message}
 					// end of sign up form
 
