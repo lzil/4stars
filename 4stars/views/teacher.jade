@@ -80,10 +80,9 @@ block content
 							input(type='submit', value='Register Student')
 						form#starForm
 							| Select students:     
-							select
-								option Tom
-								option Jerry
-								option Anna
+							select(name='name')
+								each student in students
+									option= student.username
 							br
 							br
 							|Number of stars:     
@@ -91,7 +90,7 @@ block content
 							br
 							br
 							|Reason:     
-							select
+							select(name='reason')
 								option Academics
 								option Sports
 								option Helping others

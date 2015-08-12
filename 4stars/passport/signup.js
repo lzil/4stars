@@ -25,6 +25,7 @@ module.exports = function(passport) {
 					newUser.lastName = req.param('lastName');
 					newUser.userType = 'teacher';
 					newUser.stars = 0;
+					newUser.students = [];
 
 					newUser.save(function(err) {
 						if(err){
