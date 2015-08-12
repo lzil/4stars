@@ -24,6 +24,9 @@ module.exports = function(passport) {
 		User.findOne({ 'username' : user.username }, function(err, usr) {
 			if (usr.userType === 'teacher') {
 				var students = [];
+				if (usr.students.length == 0) {
+					res.render('teacher', {user:req.user, students: students, message: req.flash('message')});
+				}
 				for (var i = 0; i < usr.students.length; i++) {
 					User.findOne({ 'username' : usr.students[i]}, function(err, student) {
 						students.push(student);
