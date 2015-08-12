@@ -32,7 +32,7 @@
                     <h2 style="text-align:center;">Star shop</h2>
                     <div class="items">
                       <div class="row" style="margin-top: 20px">
-                        <div class="col-sm-6 col-md-6 col-lg-3 single_item" mouseover="showText()" mouseout="hideText()"><div class="hidden_text" style="display:none"><p>Fluffy teddy bear</p></div><img style="height:160px; width:160px; margin-top:5px" src="../public/images/teddybear.jpg"><ul class="price"><li class="small_star"><img src="../public/images/yellow_star.png"></li><li class="multiple">x 30</li></ul><button type="button" class="btn redeem_btn">Get it!</button></div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 single_item"><div class="hidden_text" style="display:none"><p>Fluffy teddy bear</p></div><img style="height:160px; width:160px; margin-top:5px" src="../public/images/teddybear.jpg"><ul class="price"><li class="small_star"><img src="../public/images/yellow_star.png"></li><li class="multiple">x 30</li></ul><button type="button" class="btn redeem_btn">Get it!</button></div>
                         <div class="col-sm-6 col-md-6 col-lg-3 single_item"><div class="hidden_text" style="display:none"><p>Notebook</p></div><img style="height:160px; width:160px; margin-top:5px" src="../public/images/notebooks.jpg"><ul class="price"><li class="small_star"><img src="../public/images/yellow_star.png"></li><li class="multiple">x 15</li></ul><button type="button" class="btn redeem_btn">Get it!</button></div>
                         <div class="col-sm-6 col-md-6 col-lg-3 single_item"><div class="hidden_text" style="display:none"><p>Wear superman cape for a day in school</p></div><img style="height:160px; width:160px; margin-top:5px" src="../public/images/superman.jpg"><ul class="price"><li class="small_star"><img src="../public/images/yellow_star.png"></li><li class="multiple">x 10</li></ul><button type="button" class="btn redeem_btn">Get it!</button></div>
                         <div class="col-sm-6 col-md-6 col-lg-3 single_item"><div class="hidden_text" style="display:none"><p>Assorted candies</p></div><img style="height:160px; width:160px; margin-top:5px" src="../public/images/candies.jpg"><ul class="price"><li class="small_star"><img src="../public/images/yellow_star.png"></li><li class="multiple">x 12</li></ul><button type="button" class="btn redeem_btn">Get it!</button></div>
@@ -51,12 +51,12 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function(){
-        function showText(){
+        $('.single_item').mouseover(function(){
             $(this).children('div.hidden_text').show();
-        }
-        function hideText(){
+        });
+        $('.single_item').mouseout(function(){
             $(this).children('div.hidden_text').hide();
-        }
+        }); 
     });
 </script>
 </html>

@@ -8,7 +8,7 @@ block content
 			form(action='/signout', method='get')
 				button#logout.col-md-2.btn.btn-default.navbar-btn(type='submit' style='margin-right:-15px; margin-top:-20px; width:110px; height:38px; background-color:#1cbab2; color:#ffffff; border:none; font-size:20px; margin-top:30px') Log out
 		.row(style='height:90%; margin-left:-50px')
-			#student_left_nav.col-lg-3
+			#student_left_nav.col-lg-3.col-md-3.col-sm-3.col-xs-3
 				#logo
 					img(src='/images/lastpage.png')
 				ul#stars_div
@@ -17,14 +17,14 @@ block content
 						.num_star #{user.stars}
 						img(src='/images/yellow_star.png')
 					li in total
-			#student_right_display.col-lg-9.col-md-9
+			#student_right_display.col-lg-9.col-md-9.col-sm-9.col-xs-9
 				#star_shop_items
 					h2(style='text-align:center;') Star shop
 					.items
 						each bucket in prizes
 							.row(style='margin-top: 20px')
 								each prize in bucket
-									.col-lg-3.single_item
+									.col-lg-3.col-md-3.col-sm-6.col-xs-6.single_item
 										img(style='height:160px; width:160px; margin-top:5px', src='#{prize.src}')
 										ul.price
 											li.small_star
