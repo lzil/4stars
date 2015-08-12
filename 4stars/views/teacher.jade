@@ -78,7 +78,7 @@ block content
 							br
 							br
 							input(type='submit', value='Register Student')
-						form#starForm
+						form#starForm(action='/assignStars', method='POST')
 							| Select students:     
 							select(name='name')
 								each student in students

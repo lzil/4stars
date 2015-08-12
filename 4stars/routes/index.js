@@ -30,7 +30,6 @@ module.exports = function(passport) {
 				for (var i = 0; i < usr.students.length; i++) {
 					User.findOne({ 'username' : usr.students[i]}, function(err, student) {
 						students.push(student);
-						console.log(students)
 						if (students.length == usr.students.length) {
 							res.render('teacher', {user:req.user, students: students, message: req.flash('message')});
 						}
@@ -70,18 +69,20 @@ module.exports = function(passport) {
 		failureFlash: true
 	}));
 
-	router.get('/assignStars', isAuthenticated, function(req, res) {
+	router.post('/assignStars', isAuthenticated, function(req, res) {
 		var user = req.user;
-		User.findOne({ 'username' : user.username }, function(err, usr) {
-			if (usr.userType === 'teacher') {
+		console.log(req.body);
+		User.findOne({ 'username' : req.body.name }, function(err, usr) {
+			if (user.userType === 'teacher') {
 				var stars = usr.stars;
-				User.update({username: usr.username}, {stars: stars + 4}, function(err, result) {
+				console.log(req.body.stars);
+				User.update({username: usr.username}, {stars: stars + req.body.stars, reason: req.body.reason}, function(err, result) {
 					if (err) {
 						console.log(err);
 					}
 				});
 			}
-			res.render('teacher', {user:req.user});
+			res.redirect('/home');
 		});
 	})
 
