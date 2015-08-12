@@ -1,5 +1,14 @@
 extends layout
 block content	
+	script(type='text/javascript').
+		$(document).ready(function(){
+		$('.single_item').mouseover(function(){
+		$(this).children('div.hidden_text').show();
+		});
+		$('.single_item').mouseout(function(){
+		$(this).children('div.hidden_text').hide();
+		});
+		});
 	div.container(style='height:100%')
 		.row
 			h2.col-md-6 Shoot for the stars
@@ -25,6 +34,8 @@ block content
 							.row(style='margin-top: 20px')
 								each prize in bucket
 									.col-lg-3.col-md-3.col-sm-6.col-xs-6.single_item
+										.hidden_text(style='display:none')
+											p #{prize.name}
 										img(style='height:160px; width:160px; margin-top:5px', src='#{prize.src}')
 										ul.price
 											li.small_star
