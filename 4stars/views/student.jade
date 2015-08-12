@@ -27,28 +27,28 @@ block content
 									li.small_star
 										img(src='/images/yellow_star.png')
 									li.multiple x 30
-								button.btn.redeem_btn(type='button') Get it!
+								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
 							.col-lg-3.single_item
 								img(style='height:160px; width:160px; margin-top:5px', src='/images/notebooks.jpg')
 								ul.price
 									li.small_star
 										img(src='/images/yellow_star.png')
 									li.multiple x 15
-								button.btn.redeem_btn(type='button') Get it!
+								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
 							.col-lg-3.single_item
 								img(style='height:160px; width:160px; margin-top:5px', src='/images/superman.jpg')
 								ul.price
 									li.small_star
 										img(src='/images/yellow_star.png')
 									li.multiple x 10
-								button.btn.redeem_btn(type='button') Get it!
+								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
 							.col-lg-3.single_item
 								img(style='height:160px; width:160px; margin-top:5px', src='/images/candies.jpg')
 								ul.price
 									li.small_star
 										img(src='/images/yellow_star.png')
 									li.multiple x 12
-								button.btn.redeem_btn(type='button') Get it!
+								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
 						.row(style='margin-top: 20px')
 							.col-lg-3.single_item
 								img(style='height:160px; width:160px; margin-top:5px', src='/images/recess.jpg')
@@ -56,25 +56,33 @@ block content
 									li.small_star
 										img(src='/images/yellow_star.png')
 									li.multiple x 5
-								button.btn.redeem_btn(type='button') Get it!
+								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
 							.col-lg-3.single_item
 								img(style='height:160px; width:160px; margin-top:5px', src='/images/color_pencils.jpg')
 								ul.price
 									li.small_star
 										img(src='/images/yellow_star.png')
 									li.multiple x 20
-								button.btn.redeem_btn(type='button') Get it!
+								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
 							.col-lg-3.single_item
 								img(style='height:160px; width:160px; margin-top:5px', src='/images/computer.jpg')
 								ul.price
 									li.small_star
 										img(src='/images/yellow_star.png')
 									li.multiple x 15
-								button.btn.redeem_btn(type='button') Get it!
+								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
 							.col-lg-3.single_item
 								img(style='height:160px; width:160px; margin-top:5px', src='/images/movie.jpg')
 								ul.price
 									li.small_star
 										img(src='/images/yellow_star.png')
 									li.multiple x 20
-								button.btn.redeem_btn(type='button') Get it!
+								button.btn.redeem_btn(type='button' data-toggle="modal" data-target="#popup") Get it!
+				#popup.modal(role='dialog' style='margin-top:200px')
+					.modal-dialog
+						.modal-content
+							.modal-header
+							.modal-body
+								h3 Congratulations! Your prize is on its way! Yayyy!
+							.modal-footer
+								button.btn.btn-default(type='button', data-dismiss='modal') Close
