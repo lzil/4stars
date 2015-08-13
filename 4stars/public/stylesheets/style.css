@@ -580,3 +580,15 @@ a{
 	position: relative;
 	top: -5px;
 }
+#no_students{
+	font-size:30px;
+	font-family: Open Sans;
+	color: #1cbab2;
+	text-align: center;
+	margin-top: 15%;
+}
+#register, #assign{
+	width:300px;
+	float: left;
+	margin-left: 0;
+}
