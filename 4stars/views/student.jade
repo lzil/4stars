@@ -41,7 +41,7 @@ block content
 											li.small_star
 												img(src='/images/yellow_star.png')
 											li.multiple x #{prize.price}
-										if user.stars > prize.price
+										if user.stars >= prize.price
 											form(action='/redeem', method='post')
 												input(type='text', name='price', value='#{prize.price}', style='display:none')
 												button.btn.redeem_btn(type='submit', data-toggle="modal", data-target="#popup") Get it!
